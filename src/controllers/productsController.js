@@ -2,7 +2,7 @@ import {getAllProducts, getProductById} from "../actions/productsActions";
 
 export async function handleGetProductById(req, res) {
 	try {
-		const productId = req.params.productId;
+		const {productId} = req.params;
 		const product = await getProductById(productId);
 		res.status(200).json(product);
 	} catch (e) {
