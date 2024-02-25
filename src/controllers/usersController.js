@@ -14,8 +14,8 @@ export async function handleGetCart(req, res) {
 export async function handleAddToCart(req, res) {
 	try {
 		const {userId} = req.params;
-		const {productId} = req.body;
-		await addToCart(userId, productId);
+		const {bookId} = req.body;
+		await addToCart(userId, bookId);
 		const usersCart = await getCart(userId);
 
 		res.status(200).json(usersCart);
@@ -26,8 +26,8 @@ export async function handleAddToCart(req, res) {
 
 export async function handleRemoveFromCart(req, res) {
 	try {
-		const {userId, productId} = req.params;
-		await removeFromCart(userId, productId);
+		const {userId, bookId} = req.params;
+		await removeFromCart(userId, bookId);
 		const usersCart = await getCart(userId);
 
 		res.status(200).json(usersCart);
