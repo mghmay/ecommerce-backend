@@ -1,7 +1,7 @@
 import {
 	getAllBooks,
 	getBookById,
-	getAllBooksByGenre,
+	getBooksByGenre,
 	updateBook,
 } from "../actions/booksActions";
 
@@ -24,10 +24,10 @@ export async function handleGetAllBooks(_, res) {
 	}
 }
 
-export async function handleGetAllBooksByGenre(req, res) {
+export async function handleGetBooksByGenre(req, res) {
 	try {
 		const {genre} = req.params;
-		const books = await getAllBooksByGenre(genre);
+		const books = await getBooksByGenre(genre);
 		res.status(200).json(books);
 	} catch (e) {
 		res.status(404).json({error: e.message});
