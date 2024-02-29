@@ -15,9 +15,10 @@ export async function handleGetBookById(req, res) {
 	}
 }
 
-export async function handleGetAllBooks(_, res) {
+export async function handleGetAllBooks(req, res) {
 	try {
-		const books = await getAllBooks();
+		const {searchVal} = req.query;
+		const books = await getAllBooks(searchVal);
 		res.status(200).json(books);
 	} catch (e) {
 		res.status(404).json({error: e.message});

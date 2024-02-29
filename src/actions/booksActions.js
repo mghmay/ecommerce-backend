@@ -1,8 +1,9 @@
 import db from "../db";
 
-export async function getAllBooks() {
+export async function getAllBooks(searchVal) {
 	try {
-		const books = await db.collection("books").find().toArray();
+		const query = searchVal ? {name: {$regex: searchVal, $options: "i"}} : {};
+		const books = await db.collection("books").find(query).toArray();
 		if (!books) throw new Error("This book doesn't exist!");
 
 		return books;
