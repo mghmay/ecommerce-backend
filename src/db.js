@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-const URI = "mongodb://localhost:27017/vue-db";
+import "dotenv/config";
+
+const password = process.env.MONGODB_PASSWORD;
+const username = process.env.MONGODB_USERNAME;
+const URI = `mongodb+srv://${username}:${password}@books-api.7qhcvvg.mongodb.net/vue-db?retryWrites=true&w=majority&appName=books-api`;
 
 mongoose.connect(URI);
 

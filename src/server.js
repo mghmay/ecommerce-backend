@@ -4,6 +4,7 @@ import path from "path";
 import {booksRouter} from "./routes/booksRouter";
 import {usersRouter} from "./routes/usersRouter";
 import {genresRouter} from "./routes/genresRouter";
+import "dotenv/config";
 
 const app = express();
 const port = 8000;
