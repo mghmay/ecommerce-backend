@@ -7,7 +7,7 @@ import {genresRouter} from "./routes/genresRouter";
 import "dotenv/config";
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use("/images", express.static(path.join(__dirname, "../assets")));
