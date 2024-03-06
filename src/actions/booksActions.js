@@ -30,7 +30,6 @@ export async function getBooksByGenre(genre) {
 			.find({"genre.genre": genre})
 			.toArray();
 		if (!books) throw new Error("This genre doesn't exist!");
-		console.log(books);
 		return books;
 	} catch (e) {
 		throw e;
