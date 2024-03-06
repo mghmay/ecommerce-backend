@@ -10,7 +10,7 @@ const port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use("/images", express.static(path.join(__dirname, "../assets")));
+app.use("/images", express.static(path.join(__dirname, "../public/assets")));
 app.use("/api", router);
 
 app.listen(port, () => {
